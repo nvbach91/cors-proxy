@@ -37,16 +37,17 @@ npm start
 - Example in jQuery AJAX:
 ```js
 const corsProxyURL = 'https://cors-proxy.itake.cz';
+const encodedGetURL = encodeURIComponent('https://jsonplaceholder.typicode.com/todos/1');
 
 // GET param (if this doesn't work then use GET query)
-$.getJSON(`${corsProxyURL}/${encodeURIComponent('https://jsonplaceholder.typicode.com/todos/1')}`).done((resp) => {
+$.getJSON(`${corsProxyURL}/${encodedGetURL}`).done((resp) => {
     console.log(resp);
 }).fail((resp) => {
     console.error(resp.responseText || resp.responseJSON);
 });
 
 // GET query
-$.getJSON(`${corsProxyURL}/get?url=${encodeURIComponent('https://jsonplaceholder.typicode.com/todos/1')}`).done((resp) => {
+$.getJSON(`${corsProxyURL}/get?url=${encodedGetURL}`).done((resp) => {
     console.log(resp);
 }).fail((resp) => {
     console.error(resp.responseText || resp.responseJSON);
