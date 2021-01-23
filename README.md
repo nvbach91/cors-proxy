@@ -23,7 +23,7 @@ npm start
 ```js
 const corsProxyURL = 'https://cors-proxy.itake.cz';
 
-// GET param
+// GET param (if this doesn't work then use GET query)
 $.getJSON(`${corsProxyURL}/${encodeURIComponent('https://jsonplaceholder.typicode.com/todos/1')}`).done((resp) => {
     console.log(resp);
 }).fail((resp) => {
