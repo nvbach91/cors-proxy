@@ -23,10 +23,18 @@ npm start
 ```js
 const corsProxyURL = 'https://cors-proxy.itake.cz';
 
-// GET
-const url = encodeURIComponent('https://jsonplaceholder.typicode.com/todos/1');
-$.getJSON(`${corsProxyURL}/${url}`).done((resp) => {
+// GET param
+$.getJSON(`${corsProxyURL}/${encodeURIComponent('https://jsonplaceholder.typicode.com/todos/1')}`).done((resp) => {
     console.log(resp);
+}).fail((resp) => {
+    console.error(resp.responseText || resp.responseJSON);
+});
+
+// GET query
+$.getJSON(`${corsProxyURL}/get?url=${encodeURIComponent('https://jsonplaceholder.typicode.com/todos/1')}`).done((resp) => {
+    console.log(resp);
+}).fail((resp) => {
+    console.error(resp.responseText || resp.responseJSON);
 });
 
 // POST
@@ -43,6 +51,8 @@ $.ajax({
     },
 }).done((resp) => {
     console.log(resp);
+}).fail((resp) => {
+    console.error(resp.responseText || resp.responseJSON);
 });
 
 // PUT
@@ -60,6 +70,8 @@ $.ajax({
     },
 }).done((resp) => {
     console.log(resp);
+}).fail((resp) => {
+    console.error(resp.responseText || resp.responseJSON);
 });
 
 // PATCH
@@ -74,6 +86,8 @@ $.ajax({
     },
 }).done((resp) => {
     console.log(resp);
+}).fail((resp) => {
+    console.error(resp.responseText || resp.responseJSON);
 });
 
 // DELETE
@@ -85,5 +99,7 @@ $.ajax({
     },
 }).done((resp) => {
     console.log(resp);
+}).fail((resp) => {
+    console.error(resp.responseText || resp.responseJSON);
 });
 ```
