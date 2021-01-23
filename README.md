@@ -20,17 +20,17 @@ npm start
 
 ## Documentation
 - `GET /:url`
-  - param `url`
+  - param `url: URL:String required`
 - `GET /get`
-  - query `url`
+  - query `url: URL:String required`
 - `POST /`
-  - payload `{ url: URL, data: JSON }`
+  - payload `{ url: URL:String required, data: JSON:String optional }`
 - `PUT /`
-  - payload `{ url: URL, data: JSON }`
+  - payload `{ url: URL:String required, data: JSON:String optional }`
 - `PATCH /`
-  - payload `{ url: URL, data: JSON }`
+  - payload `{ url: URL:String required, data: JSON:String optional }`
 - `DELETE /`
-  - payload `{ url: URL }`
+  - payload `{ url: URL:String required }`
 
 
 ## Usage

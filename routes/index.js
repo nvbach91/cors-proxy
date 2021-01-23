@@ -34,7 +34,7 @@ router.get('/:url', async (req, res) => {
 router.post('/', async (req, res) => {
   console.log('POST', req.body.url, req.body.data);
   try {
-    const resp = await axios.post(req.body.url, JSON.parse(req.body.data));
+    const resp = await axios.post(req.body.url, req.body.data ? JSON.parse(req.body.data) : {});
     res.json(resp.data);
   } catch (e) {
     handleException(e, res);
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 router.patch('/', async (req, res) => {
   console.log('PATCH', req.body.url, req.body.data);
   try {
-    const resp = await axios.patch(req.body.url, JSON.parse(req.body.data));
+    const resp = await axios.patch(req.body.url, req.body.data ? JSON.parse(req.body.data) : {});
     res.json(resp.data);
   } catch (e) {
     handleException(e, res);
@@ -54,7 +54,7 @@ router.patch('/', async (req, res) => {
 router.put('/', async (req, res) => {
   console.log('PUT', req.body.url, req.body.data);
   try {
-    const resp = await axios.put(req.body.url, JSON.parse(req.body.data));
+    const resp = await axios.put(req.body.url, req.body.data ? JSON.parse(req.body.data) : {});
     res.json(resp.data);
   } catch (e) {
     handleException(e, res);
