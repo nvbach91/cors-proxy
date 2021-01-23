@@ -7,7 +7,7 @@ const handleException = (e, res) => {
 };
 
 router.get('/', (req, res) => {
-  res.json({ success: true, msg: 'See also https://github.com/nvbach91/cors-proxy' });
+  res.json({ success: true, msg: 'See usage and documentation here: https://github.com/nvbach91/cors-proxy' });
 });
 
 router.get('/get', async (req, res) => {

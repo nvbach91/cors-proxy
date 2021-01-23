@@ -16,7 +16,22 @@ npm start
 
 ## Features
 - CORS enabled - you can make AJAX calls from browsers to this API
-- Supports GET and POST
+- Supports GET, POST, PUT, PATCH and DELETE
+
+## Documentation
+- `GET /:url`
+  - param `url`
+- `GET /get`
+  - query `url`
+- `POST /`
+  - payload `{ url: URL, data: JSON }`
+- `PUT /`
+  - payload `{ url: URL, data: JSON }`
+- `PATCH /`
+  - payload `{ url: URL, data: JSON }`
+- `DELETE /`
+  - payload `{ url: URL }`
+
 
 ## Usage
 - Example in jQuery AJAX:
