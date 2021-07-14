@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.get('/get', async (req, res) => {
   console.log('GET query', req.query.url);
   try {
-    const resp = await axios.get(req.query.url);
+    const resp = await axios.get(req.query.url, { headers: { 'accept': req.get('accept') }});
     res.json(resp.data);
   } catch (e) {
     handleException(e, res);
