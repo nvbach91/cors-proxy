@@ -2,7 +2,7 @@
 This API is used to make requests to CORS restricted servers
 
 ## Production
-- https://corse-proxy.itake.cz/
+- https://cors-proxy.itake.cz/
 
 ## Development
 - Node.js 18.12.0
