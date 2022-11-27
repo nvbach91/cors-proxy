@@ -103,6 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
+# production config files of IIS
 /iisnode/
 /server.js
 /web.config
