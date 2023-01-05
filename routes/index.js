@@ -6,14 +6,29 @@ const handleException = (e, res) => {
   res.status(e.response ? e.response.status : 400).json(e.response ? e.response.data : e.message || e);
 };
 
+router.get('/test', async (req, res) => {
+  const url = 'https://jsonplaceholder.typicode.com/todos/1';
+  try {
+	const resp = await axios.get(url);
+    res.json({ url, data: resp.data });
+  } catch (e) {
+    handleException(e, res);
+  }
+});
+
 router.get('/', (req, res) => {
+  console.log('GET query', '/');
   res.json({ success: true, msg: 'See usage and documentation here: https://github.com/nvbach91/cors-proxy' });
 });
 
 router.get('/get', async (req, res) => {
   console.log('GET query', req.query.url);
+  const config = {};
+  if (req.get('accept')) {
+	config.headers = { 'accept': req.get('accept') };
+  }
   try {
-    const resp = await axios.get(req.query.url, { headers: { 'accept': req.get('accept') }});
+    const resp = await axios.get(req.query.url, config);
     res.json(resp.data);
   } catch (e) {
     handleException(e, res);
