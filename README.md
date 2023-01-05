@@ -1,4 +1,4 @@
-# Twitter API Proxy
+# Any API Proxy
 This API is used to make requests to CORS restricted servers
 
 ## Production
