@@ -32,6 +32,11 @@ npm start
 - `DELETE /`
   - payload `{ url: URL:String required }`
 
+## Privacy concerns & security risks
+- This service is available for you at your own risk
+- Using a public proxy server like this one is a huge security risk and should not be considered a permanent long term solution
+- Please think twice abour sending any sensitive data like passwords, secrets, and API keys, also make sure to revoke them after using them here!
+- This service is for development purposes only, DO NOT use it on production!
 
 ## Usage
 - Example in jQuery AJAX:
