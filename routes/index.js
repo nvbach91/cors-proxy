@@ -9,7 +9,7 @@ const handleException = (e, res) => {
 router.get('/test', async (req, res) => {
   const url = 'https://jsonplaceholder.typicode.com/todos/1';
   try {
-	const resp = await axios.get(url);
+    const resp = await axios.get(url);
     res.json({ url, data: resp.data });
   } catch (e) {
     handleException(e, res);
@@ -25,7 +25,7 @@ router.get('/get', async (req, res) => {
   console.log('GET query', req.query.url);
   const config = {};
   if (req.get('accept')) {
-	config.headers = { 'accept': req.get('accept') };
+    config.headers = { 'accept': req.get('accept') };
   }
   try {
     const resp = await axios.get(req.query.url, config);
@@ -47,10 +47,20 @@ router.get('/:url', async (req, res) => {
 
 
 router.post('/', async (req, res) => {
-  console.log('POST', req.body.url, req.body.data);
+  console.log('POST', req.body.url, req.body.data, req.body.headers);
+  const config = {
+    headers: {},
+  };
   try {
-    const resp = await axios.post(req.body.url, req.body.data ? JSON.parse(req.body.data) : {});
-    res.json(resp.data);
+    if (req.body.headers) {
+      const customHeaders = JSON.parse(req.body.headers);
+      Object.keys(customHeaders).forEach((key) => {
+        config.headers[key] = customHeaders[key];
+      });
+    }
+    const data = req.body.data ? JSON.parse(req.body.data) : {};
+    const resp = await axios.post(req.body.url, data, config);
+    res.json({ status: resp.status, data: resp.data });
   } catch (e) {
     handleException(e, res);
   }

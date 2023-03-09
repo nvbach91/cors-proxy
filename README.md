@@ -68,7 +68,10 @@ $.ajax({
             title: 'foo',
             body: 'bar',
             userId: 1,
-        })
+        }),
+        headers: JSON.stringify({
+            'Content-Type': 'application/x-www-form-urlencoded',
+        }),
     },
 }).done((resp) => {
     console.log(resp);
