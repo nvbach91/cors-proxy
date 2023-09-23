@@ -5,7 +5,7 @@ This API is used to make requests to CORS restricted servers
 - https://cors-proxy.itake.cz/
 
 ## Development
-- Node.js 18.12.0
+- Node.js 20.4.0
 ```bash
 git clone https://github.com/nvbach91/cors-proxy.git
 cd cors-proxy
